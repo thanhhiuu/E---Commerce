@@ -97,4 +97,10 @@ userSchema.pre("save", async function (next) {
 
 // ! Khi đăng nhập, sẽ so sánh password người dùng nhập vào với password đã được mã hóa trong DB để xác thực.
 //Export the model
+
+userSchema.methods = {
+  isConrrectPasswords: async function (password) {
+    return await bcrypt.compareSync(password, this.password);
+  },
+};
 export default mongoose.model("User", userSchema);

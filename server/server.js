@@ -16,6 +16,8 @@ app.use(express.urlencoded({ extended: true }));
 // Gọi phương thức kết nối mongoDB
 dbConnect();
 
+// ! Việc gọi initRouter giúp khởi tạo hệ thống routing của app
+// ! Cũng như việc truyền app vào initRouter giúp ta có thể sử dụng đối tượng app để sử dụng hệ thống routing bên trong initRouter
 initRouter(app);
 
 app.listen(port, () => {
